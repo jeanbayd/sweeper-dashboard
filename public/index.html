@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sweeper Dashboard · ETZ2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="gate" class="gate">
+  <div class="gate-box">
+    <div class="gate-logo">SWEEPER<span>_</span>DASH</div>
+    <div class="gate-sub">ETZ2 // accès restreint</div>
+    <input id="gate-input" type="password" placeholder="Clé API" autocomplete="off" />
+    <button id="gate-btn">Connexion</button>
+    <div id="gate-error" class="gate-error"></div>
+  </div>
+</div>
+
+<div id="app" class="app hidden">
+
+  <header class="topbar">
+    <div class="brand">SWEEPER<span>_</span>DASH <small>ETZ2</small></div>
+    <nav class="tabs">
+      <button class="tab active" data-tab="dashboard">Cartes profil</button>
+      <button class="tab" data-tab="team">Équipe</button>
+    </nav>
+    <div class="topbar-right">
+      <span id="live-clock" class="clock"></span>
+      <button id="logout-btn" class="ghost-btn" title="Changer de clé">⎋</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== DASHBOARD ===================== -->
+    <section id="view-dashboard" class="view active">
+      <div class="view-header">
+        <h1>Cartes profil sweepers</h1>
+        <div class="view-actions">
+          <input id="search-sweeper" type="text" placeholder="Filtrer par login…" />
+          <button id="refresh-dashboard" class="ghost-btn">↻ Rafraîchir</button>
+        </div>
+      </div>
+      <div id="cards-grid" class="cards-grid">
+        <div class="empty-state">Chargement…</div>
+      </div>
+    </section>
+
+    <!-- ===================== DETAIL SWEEPER (overlay) ===================== -->
+    <section id="view-detail" class="view detail-overlay">
+      <div class="detail-panel">
+        <button id="detail-close" class="ghost-btn detail-close">✕ Fermer</button>
+        <div id="detail-content">Chargement…</div>
+      </div>
+    </section>
+
+    <!-- ===================== EQUIPE ===================== -->
+    <section id="view-team" class="view">
+      <div class="view-header">
+        <h1>Vue équipe (période)</h1>
+        <div class="view-actions">
+          <label class="field-inline">Du
+            <input id="team-start" type="datetime-local" />
+          </label>
+          <label class="field-inline">Au
+            <input id="team-end" type="datetime-local" />
+          </label>
+          <button id="team-load" class="primary-btn">Analyser</button>
+        </div>
+      </div>
+      <div id="team-content">
+        <div class="empty-state">Choisis une période puis clique sur « Analyser ».</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    FCR Trace Sweeper · FCR Sweeper Comparator — poussé automatiquement depuis Tampermonkey · JB
+  </footer>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

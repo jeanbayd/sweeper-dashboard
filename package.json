@@ -1,0 +1,16 @@
+{
+  "name": "sweeper-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dashboard ETZ2 - cartes profil sweepers, historique trace & comparator",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "express": "^4.19.2"
+  }
+}
